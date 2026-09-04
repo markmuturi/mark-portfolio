@@ -25,10 +25,6 @@ export default function DesignContact({ accent }) {
             LinkedIn
           </a>
         </div>
-
-        <p className="mt-6 font-friendly text-xs text-charcoal-muted">
-          Contact details above are placeholders — edit them in src/content.js.
-        </p>
       </div>
     </section>
   )

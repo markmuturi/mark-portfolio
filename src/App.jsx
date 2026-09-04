@@ -8,9 +8,11 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import DesignSite from './components/DesignSite'
 import DesignFooter from './components/design/DesignFooter'
+import useGuidedTour from './hooks/useGuidedTour'
 
 export default function App() {
   const [mode, setMode] = useState('dev')
+  const tour = useGuidedTour(setMode)
 
   useEffect(() => {
     document.documentElement.dataset.mode = mode
@@ -21,7 +23,7 @@ export default function App() {
       <Nav mode={mode} setMode={setMode} />
       <main>
         {mode === 'design' ? (
-          <DesignSite />
+          <DesignSite carouselAutoplay={tour.active && tour.stepId === 'design-work'} />
         ) : (
           <>
             <Hero mode={mode} />
@@ -33,6 +35,16 @@ export default function App() {
         )}
       </main>
       {mode === 'design' ? <DesignFooter /> : <Footer />}
+
+      {tour.active && (
+        <button
+          type="button"
+          onClick={tour.skip}
+          className="fixed bottom-6 right-6 z-[999] font-mono text-[11px] tracking-widest uppercase px-4 py-2 rounded-full bg-black/70 text-white backdrop-blur hover:bg-black/85 transition-colors"
+        >
+          Skip tour
+        </button>
+      )}
     </div>
   )
 }

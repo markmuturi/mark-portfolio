@@ -120,7 +120,7 @@ export const designPalette = [
 export const designHero = {
   eyebrow: 'SuaveCre8ive — visual & brand design',
   heading: 'Design with a pulse.',
-  body: 'Brand systems, layout, and visual direction for people who want work that looks considered, not templated. PLACEHOLDER: rewrite this in your own voice.',
+  body: 'Brand systems, layout, and visual direction for people who want work that looks considered, not templated.',
 }
 
 export const work = [
@@ -165,6 +165,7 @@ export const work = [
     description:
       'Designed promotional materials for both editions of the Liminal Experience',
     href: 'https://www.behance.net/gallery/235622173/Liminal-Experience-KE-Promotional-Materials',
+    image: '/images/work/liminal1.png',
     placeholder: false,
   },
   {
@@ -175,6 +176,7 @@ export const work = [
     description:
       'Designed promotional materials for My G Xs Live Concert',
     href: '',
+    image: '/images/work/mygxs.jpg',
     placeholder: false,
   },
   {
@@ -185,6 +187,18 @@ export const work = [
     description:
       'Designed promotional materials for both editions of the Liminal Experience',
     href: 'https://www.behance.net/gallery/255085495/Liminal-Experience-2nd-Edition',
+    image: '/images/work/liminal2.png',
+    placeholder: false,
+  },
+  {
+    id: 'footballposters',
+    title: 'Football Inspired Posters',
+    tag: 'Sports Content',
+    mode: 'design',
+    description:
+      'Designed Sports Related Materials',
+    href: 'https://www.behance.net/gallery/255085495/Liminal-Experience-2nd-Edition',
+    image: '/images/work/footy1.png',
     placeholder: false,
   },
 ]
