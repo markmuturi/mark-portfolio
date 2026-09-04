@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --accent: red;
+  --accent-dim: #2E8C79;
+  --accent-soft: rgba(76, 224, 196, 0.12);
+}
+
+[data-mode='design'] {
+  --accent: #F0A857;
+  --accent-dim: #9C6E38;
+  --accent-soft: rgba(240, 168, 87, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: #0A0C10;
+  color: #E9EAEC;
+  font-family: 'InterVariable', 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.text-accent {
+  color: var(--accent);
+  transition: color 0.5s ease;
+}
+
+.bg-accent {
+  background-color: var(--accent);
+  transition: background-color 0.5s ease;
+}
+
+.border-accent {
+  border-color: var(--accent);
+  transition: border-color 0.5s ease;
+}
+
+.accent-soft {
+  background-color: var(--accent-soft);
+  transition: background-color 0.5s ease;
+}
+
+/* visible keyboard focus, kept intentional rather than removed */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+::selection {
+  background: var(--accent);
+  color: #0A0C10;
+}
+
+/* BorderGlow — glowing gradient border that tracks cursor angle and
+   intensifies near the edges. --glow-angle/--glow-opacity are set per
+   element by the BorderGlow component via JS; c1/c2 default to the
+   current accent so it follows whatever --accent is set to. */
+.border-glow {
+  --glow-angle: 0deg;
+  --glow-opacity: 0;
+  --glow-c1: var(--accent);
+  --glow-c2: #ffffff;
+  position: relative;
+  isolation: isolate;
+}
+
+.border-glow::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--glow-angle),
+    transparent 0deg,
+    var(--glow-c1) 50deg,
+    var(--glow-c2) 90deg,
+    var(--glow-c1) 130deg,
+    transparent 200deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: var(--glow-opacity);
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 20;
+}
+
+/* Skills section marquee loop. The track renders the skill list twice;
+   translating by exactly -50% moves it one full copy-width, which lines
+   up perfectly with where it started, so the loop never visibly resets. */
+@keyframes skills-loop {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-skills-loop {
+  animation: skills-loop 42s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-skills-loop {
+    animation: none;
+  }
+}
