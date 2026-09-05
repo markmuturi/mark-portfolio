@@ -130,7 +130,7 @@ export const work = [
     tag: 'Client site',
     mode: 'dev',
     description:
-      'Festival website for NAJ26. PLACEHOLDER: add what you actually built (stack, key features, timeline) and the outcome — traffic, ticket signups, client feedback, whatever you can point to.',
+      'Festival website for NAJ26. MultiPage React site.',
     href: 'https://nairobiartsjamboree.ke',
     image: '/images/work/naj26.png',
     placeholder: false,
