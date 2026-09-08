@@ -158,6 +158,17 @@ export const work = [
     placeholder: false,
   },
   {
+    id: 'mimcp',
+    title: 'Market Intelligence MCP - For Claude',
+    tag: 'Trading',
+    mode: 'dev',
+    description:
+      'MCP Server for Claude that serves info from various verified sources to support Trading',
+    href: 'https://market-intelligence-mcp.vercel.app/',
+    image: '/images/work/.png',
+    placeholder: false,
+  },
+  {
     id: 'liminalexp',
     title: 'Liminal Experience 1st Edition',
     tag: 'Community Event',
